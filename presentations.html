@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>発表資料 | クックパッド開発者ブログ</title>
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel='canonical' href='http://techlife.cookpad.com/presentations/' />
+<link rel="shortcut icon" type="image/x-icon" href="http://0.gravatar.com/blavatar/011eb2ab5970baa52b9d7b94253addde?s=16" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="http://0.gravatar.com/blavatar/011eb2ab5970baa52b9d7b94253addde?s=16" sizes="16x16" />
+<link rel="apple-touch-icon-precomposed" href="http://0.gravatar.com/blavatar/09c04b621ed760c746467e3647d28935?s=114" />
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+body {
+    background: url('http://cookpadtech.files.wordpress.com/2013/01/body.png') top left repeat-x;
+    border-top: 3px solid orange;
+    color: #3c3c3c;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+img {
+    border: none;
+}
+
+form,p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+a {
+    color: #4d2200;
+    text-decoration: none;
+}
+
+a.special {
+    color: #f48003;
+}
+
+a:visited {
+    color: #693e1c;
+}
+
+a:hover {
+    color: #80400e;
+    text-decoration: underline;
+}
+
+#wrap {
+    width: 970px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 200px;
+    overflow: hidden;
+}
+
+#header h1 a {
+    background: url('http://cookpadtech.files.wordpress.com/2013/01/h1_bg.png') 0 50% no-repeat;
+    display: block;
+    padding: 60px 0 70px;
+    text-indent: -99999px;
+}
+
+#header h1 a:hover {
+    opacity: .8;
+}
+
+#header .description {
+    display: none;
+}
+
+#content {
+    float: left;
+    overflow: hidden;
+    width: 660px;
+}
+
+#sidebar {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 240px;
+    float: right;
+    overflow: hidden;
+}
+
+#footer {
+    clear: both;
+    text-align: right;
+    padding: 15px;
+    font-size: 10px;
+}
+
+.entry {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 30px;
+    overflow: hidden;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.entry img {
+    max-width: 700px;
+    margin: 7px 0;
+}
+
+.entrytitle h2 {
+    color: #b06c1c;
+    font-size: 30px;
+    line-height: 1.35;
+}
+
+.entrytitle h2 a {
+    color: #b06c1c;
+}
+
+.entrytitle h3 {
+    font-weight: 400;
+    color: #9b8b6c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.entrybody {
+    margin-top: 20px;
+}
+
+.entrybody a {
+    text-decoration: underline;
+}
+
+.entrybody h2,.entrybody h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+.entrybody h3,.entrybody h5 {
+    font-size: 18px;
+    margin: 25px 0 7px;
+    line-height: 1.5;
+}
+
+.entrybody h6 {
+    font-size: 18px;
+    margin: 7px 0 7px 15px;
+}
+
+.entrybody p {
+    margin-bottom: 17px;
+}
+
+.entrybody ul,.entrybody ol {
+    padding-left: 20px;
+    margin: 0 0 17px;
+}
+
+.entrybody ul li {
+    margin: 5px 0;
+    line-height: 1.7;
+}
+
+.entrybody pre {
+    background: #f9f5ee;
+    padding: 10px;
+    border: 3px solid #eae3d3;
+    line-height: 1.5;
+    overflow: auto;
+}
+
+.entrybody img {
+    border: 1px solid #f5f5f5;
+}
+
+.entrybody table {
+    border-collapse: collapse;
+    border: 1px solid #ebe3d1;
+}
+
+.entrybody table th,.entrybody table td {
+    padding: 3px 7px;
+    border: 1px solid #ebe3d1;
+}
+
+.entrybody table th {
+    text-align: left;
+    background: #fbf8f2;
+}
+
+.entrybody blockquote {
+    color: #888;
+    margin-left: 0;
+    padding: 5px 0 5px 15px;
+    border-left: 3px solid #eee;
+}
+
+.entrybody .syntaxhighlighter {
+    margin: 0!important;
+}
+
+.entrybody .syntaxhighlighter table code,.entrybody .syntaxhighlighter table td,.entrybody .syntaxhighlighter table tbody,.entrybody .syntaxhighlighter table tr {
+    font-size: 13px !important;
+}
+
+.entrybody .sharedaddy .sd-block {
+    text-align: left;
+    border-top: none !important;
+    margin-top: 15px;
+}
+
+.entrybody .sharedaddy .sd-content {
+    float: none !important;
+    width: auto;
+}
+
+.entrymeta {
+    display: none;
+}
+
+#sidebar ul {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-left: 0;
+    padding-left: 18px;
+}
+
+#sidebar ul li {
+    padding-bottom: 8px;
+}
+
+#sidebar h2 {
+    color: #b06c1c;
+    margin-top: 20px;
+    margin-bottom: 7px;
+}
+
+#sidebar img {
+    max-width: 240px;
+}
+
+#sidebar input {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    height: 24px;
+    margin: 0;
+    line-height: 1;
+    padding: 3px 6px;
+    font-size: 14px;
+}
+
+#sidebar .widget_search {
+    padding-top: 25px;
+}
+
+#sidebar input[type=text] {
+    width: 160px;
+}
+
+.navigation {
+    font-size: 14px;
+}
+
+.page-id-2063 .entry {
+    border-bottom: none;
+}
+
+.page-id-2063 #footer,.page-id-2063 #sidebar {
+    display: none;
+}
+
+.page-id-2063 #content {
+    width: 100%;
+}
+
+.entrybody .cookpad-slides-elements {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.entrybody .cookpad-slides-element {
+    border: solid 1px #ccc;
+    list-style-type: none;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.entrybody .cookpad-slides-image {
+    border: none;
+    width: 210px;
+    height: 157px;
+    margin: 0;
+    display: block;
+}
+</style>
+<meta name="description" content="クックパッドのエンジニアがサイトの開発と運営について書き綴ります" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+		</head>
+<body class="page page-id-2063 page-template-default logged-in admin-bar no-customize-support mp6 typekit-enabled highlander-enabled highlander-light">
+
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://cookpadtech.wordpress.com/">クックパッド開発者ブログ</a></h1>
+		<p class="description">クックパッドのエンジニアがサイトの開発と運営について書き綴ります</p>
+			</div><!-- / #header -->
+
+	<div id="content">
+									<div class="post-2063 page type-page status-publish hentry entry entry-1" id="post-2063">
+		<div class="entrytitle">
+			<h2><a href="http://cookpadtech.wordpress.com/presentations/" rel="bookmark">発表資料</a></h2>
+		</div>
+		<div class="entrybody">
+			<ul class="cookpad-slides-elements">
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/takai/cookpad-and-test-automation"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/9afc22e0c63101312f5412d278fd0f6e/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/elasticache-for-redis-snapshot"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/04141c30c3c10131b3ad163a5c5b95ea/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/kani_b/cloudtrail"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/cloudtrailawscasual-140418065739-phpapp02/95/slide-1-638.jpg?cb=1397822346" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/kwappa/lgtm-way-to-take-a-communication-on-github"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/04a7b2f0964d0131f0363e762bb67ced/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mirakui/cookpads-deployment-and-auto-scaling"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/e22604108e28013146051a945ae20cc0/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/yoshiori/how-we-cook-cookpad-dot-com"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/8cc658a076ac013148646268bd6e389b/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/rejasupotaro/how-to-build-a-career-through-github-activities"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/d07deda0755701312eb91a125ab0a9e4/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/tokorom/do-you-know-xctest-command"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/fcf2693060290131938a2a4592a1f90c/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/schoowebcampus/20131225schoo"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20131225schoo-131225020431-phpapp02/95/slide-1-638.jpg?cb=1387958859" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/tokorom/my-unit-test-environment-for-objective-c"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/d1b1d1e04c3c01316bc772e59c5bd9a1/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/katsuma/service-development-for-users"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/30cbbd704ac401319ef34a8c50b5985a/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/rejasupotaro/fixture-replacement-for-android"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/9f21136045fd0131edb6021115a2c45e/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/tokorom/downloadable-storyboards"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/3ea4f0e044950131af4c628e140beceb/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/hotchpotch/glitchkit"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/2048f1d0448e0131253a721e2ac5380f/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/tikeda/ui-for-everydays-cooking"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/5a7a1b703fe5013162063a28d6c1e062/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/hotchpotch/kurautowoshi-tuta-yusaxiang-kesahisukai-fa-falsemian-bai-sa"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/4142e560448e0131253a721e2ac5380f/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/butsukari-geiko"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/87766080363f0131c28312f5e4691f5a/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/takai/continuous-delivery-in-cookpad"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/391a240035690131b25126ccc4851787/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/robotvert/about-cookpad-2013-11"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/2f6dba802fba0131ef424aa7d272d735/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/y310/kibanaru-men"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/3d0776802ddb0131fdd042970ce72c15/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/makimoto/the-pragmatic-animated-gif-in-ruby-a-rubyconf-2013-lightning-talk"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/9fef9c002bc60131f29c6a06e9254d57/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/sns-mobilepush"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/7211da503f79013171fb1ec4d1deacbb/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/move-to-mysql5-dot-6"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/8ea29ad03f7901311c2426ccf00f11d8/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mirakui/being-healthy-dev-and-ops-in-cookpad"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/bd487ad00a49013116811a94ecd7685c/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/redis-on-ec2"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/50d5be003f7901314e5152b79b1bcd63/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/redshift-is-not-only-dwh"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/9c1180903f7701311c2426ccf00f11d8/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/robotvert/pseudo-smt-at-cookpad"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/889162102b42013141d652796415f8d6/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/hotchpotch/pull-request-woli-yong-sitakai-fa-wakuhuro"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/bb1c0a10f1bc0130062a02c06ebb4dee/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/redshift-with-not-enterprise"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/221fa9d03f79013162053a28d6c1e062/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/casual-ci-server"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/dfa5e600d67b01301d6f6688d6303335/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mrkn/how-to-make-easy-and-casual-ci-management-in-cookpad"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/14a655a0d7f801307ebc261b9191be85/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/takai/login-form-from-scratch"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/408e8ab0c287013062654e45498dae18/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/aws-ec2-ecu-study"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/2387a8203f77013171fc1ec4d1deacbb/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/makimoto/the-pragmatic-glitch-number-rubykaigi-2013-lt"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/c7308c70abf001305b483680c69f17aa/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mirakui/high-performance-rails-long-edition"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/3c835840ac280130cde802481b2a3015/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/yoshiori/hacking-in-the-sky"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/d1c1311094f80130298d2efa0068aa13/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mrkn/what-a-hard-work-to-make-the-recipe-sharing-service-available-on-ruby-1-dot-9-3"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/21029f6072cb01309699123138155547/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/con_mame/loadbalance-using-internal-elb"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/fe574b803f76013162053a28d6c1e062/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mirakui/quan-zi-dong-parametatiyuningusan"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/59e188905baf013025f71231381b23b3/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/yoshiori/pu-falsezi-fen-zhan-lue"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/4c4519c059860130d1bf1231392d87a1/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/takai/github-enterprise-integration-with-aws"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/fa9ea430477a0130b1541231381d27a8/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/makimoto/recipes-of-recipe-search"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/07f8f9803f650130e97412313b100342/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/the-everything-machine"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/910dc1b03f850130e97412313b100342/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/tikeda/sass-for-everydays-cooking"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/afbc52009a07013061f50edce4aa244a/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/takai/che-di-bi-jiao-siertowebxi-hakokogawei-u"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/acd795202b8d0130904c22000a9d04af/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mrkn/ruby-technologies-activating-the-development-of-cookpad"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/bed7b7c0262e013081f322000a1e8010/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/how-to-grow-up-in-cookpad"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/50790630b180f0000204fd57/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/tukurou!chao-zi-ran-de-cun-zai"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/507820a8c94f350002046e25/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mrkn/rspec-functions"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/505c3dc2ae04f5000203e361/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/test-on-rails"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/5059b685e4ce5c0002043a51/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/hotchpotch/liao-li-wozhi-eruji-shu-2012"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/5058d37ae4ce5c0002000995/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mrkn/distributed-rspec"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/5055396ab4dbee0002021339/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/takai/code-review-in-action"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/50544737bf73df000203d953/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/sorah/guide-to-social-coding"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/5053e4925281be0002008afd/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/r7kamura/git-workflow"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/5011463db38c9d000203544d/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/mrkn/chanko"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/4f99089ef1dc4a001f02d7f9/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="https://speakerdeck.com/tikeda/web-fonts-with-web-design"><img class="cookpad-slides-image" src="https://speakerd.s3.amazonaws.com/presentations/4f88d11de95003001f006377/slide_0.jpg" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/hotchpotch/20120204fluent-logging"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20120204fluentlogging-120203235909-phpapp01/95/slide-1-728.jpg?cb=1328335563" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/mirakui/20111102-rails-meetuptofu"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20111102railsmeetuptofu-111109025740-phpapp02/95/slide-1-728.jpg?cb=1320829719" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/hotchpotch/ruby-8630511"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20110713ruby2011-110718214553-phpapp01/95/slide-1-728.jpg?cb=1311043648" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/hotchpotch/2011rubykaigi-ree"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20110715rubyree-110718214749-phpapp02/95/slide-1-728.jpg?cb=1311043824" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/hotchpotch/ruby18"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20110704hokkaido-110704002511-phpapp01/95/slide-1-728.jpg?cb=1309757237" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/mirakui/ss-8150494"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/20110525tofu-110530080429-phpapp02/95/slide-1-728.jpg?cb=1306761290" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/hotchpotch/ruby01"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/oedo01-110410080807-phpapp01/95/slide-1-728.jpg?cb=1302441611" /></a></li>
+<li class="cookpad-slides-element"><a target="_blank" href="http://www.slideshare.net/hotchpotch/javascript-testjs-shibuyajs"><img class="cookpad-slides-image" src="http://image.slidesharecdn.com/shibuyajstestjs-110308085702-phpapp01/95/slide-1-728.jpg?cb=1299597015" /></a></li>
+</ul>
+
+	</div>
+	</div>
+</div><!-- / #wrap -->
+
+
+</body>
+</html>
